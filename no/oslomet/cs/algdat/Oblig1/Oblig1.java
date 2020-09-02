@@ -11,7 +11,7 @@ public class Oblig1 {
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
         if (a == null ) {
-            throw new NoSuchElementException();
+            throw new NoSuchElementException("Det finnes ingen liste");
         }
 
         for (int i = 0; i < a.length - 1; i++) {
@@ -39,11 +39,10 @@ public class Oblig1 {
 
         for (int i = 0; i < a.length - 1; i++) {
 
-            if (a[i] < a[i + 1]) {
+            if (a[i] > a[i + 1]) {
                 int value = a[i + 1];
                 a[i + 1] = a[i];
                 a[i] = value;
-                System.out.println("Nå byttes tallene");
                 ombyttinger++;
 
             }
