@@ -56,7 +56,7 @@ public class Oblig1 {
         }
             for (int i = 0; i < a.length - 1; i++) {
                 if (a[i] > a[i + 1]) {
-                    throw new UnsupportedOperationException("Tabellen er ikke sortert");
+                    throw new IllegalStateException("Tabellen er ikke sortert");
                 }
                 if (a[i] != a[i + 1]) {
                     antallUnike++;
