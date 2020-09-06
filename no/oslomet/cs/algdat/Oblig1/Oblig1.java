@@ -90,7 +90,36 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new UnsupportedOperationException();
+        int [] indekser = new int [a.length];
+        int [] hjelpetabell = new int[a.length];
+
+        System.arraycopy(a, 0, hjelpetabell, 0, a.length);
+
+        int minsteverdi;
+        int minsteverdiindeks;
+
+        for(int i = 0; i<a.length; ++i){
+            minsteverdi = hjelpetabell[i];
+            minsteverdiindeks = i;
+            for(int j = i+1; j < a.length; ++j){
+                if(hjelpetabell[j]<minsteverdi) {
+                    minsteverdi = hjelpetabell[j];
+                    minsteverdiindeks = j;
+                }
+            }
+            int midlertidig = hjelpetabell[i];
+            hjelpetabell[i] = minsteverdi;
+            hjelpetabell[minsteverdiindeks] = midlertidig;
+        }
+
+        for(int i = 0; i <a.length; ++i){
+            for(int j = 0; j<a.length; ++j){
+                if(hjelpetabell[i]==a[j]){
+                    indekser[i]=j;
+                }
+            }
+        }
+        return indekser;
     }
 
     ///// Oppgave 9 //////////////////////////////////////
