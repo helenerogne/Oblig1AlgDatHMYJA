@@ -114,8 +114,8 @@ public class Oblig1 {
 
         for(int i = 0; i <a.length; ++i){
             for(int j = 0; j<a.length; ++j){
-                if(hjelpetabell[i]==a[j]){
-                    indekser[i]=j;
+                if(hjelpetabell[i]==a[j] && (i<1 || indekser[i-1] != j)){
+                    indekser[i] = j;
                 }
             }
         }
@@ -124,7 +124,50 @@ public class Oblig1 {
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new UnsupportedOperationException();
+        if(a.length < 3){
+            throw new NoSuchElementException("arrayet er for kort til å hente de tre minste verdiene");
+        }
+        int [] hjelpetabell = {a[0], a[1], a[2]};
+        int [] indekser = indekssortering(hjelpetabell);
+
+        int minsteverdi = a[indekser[0]];
+        int nestminstverdi = a[indekser[1]];
+        int tredjeminstverdi = a[indekser[2]];
+
+        int minsteverdiindeks = indekser[0];
+        int nestminstverdiindeks = indekser[1];
+        int tredjeminstverdiindeks = indekser[2];
+
+        for(int i = 3; i < a.length; ++i){
+            if(a[i] < tredjeminstverdi){
+                if (a[i] < nestminstverdi){
+                    if(a[i] < minsteverdi){
+                        tredjeminstverdiindeks = nestminstverdiindeks;
+                        nestminstverdiindeks = minsteverdiindeks;
+                        minsteverdiindeks = i;
+
+                        tredjeminstverdi = a[tredjeminstverdiindeks];
+                        nestminstverdi = a[nestminstverdiindeks];
+                        minsteverdi = a[minsteverdiindeks];
+                    }else{
+                        tredjeminstverdiindeks = nestminstverdiindeks;
+                        nestminstverdiindeks = i;
+
+                        tredjeminstverdi = a[tredjeminstverdiindeks];
+                        nestminstverdi = a[nestminstverdiindeks];
+                    }
+                }else{
+                    tredjeminstverdiindeks = i;
+
+                    tredjeminstverdi = a[tredjeminstverdiindeks];
+                }
+            }
+            indekser [0] = minsteverdiindeks;
+            indekser [1] = nestminstverdiindeks;
+            indekser [2] = tredjeminstverdiindeks;
+        }
+
+        return indekser;
     }
 
     ///// Oppgave 10 //////////////////////////////////////
