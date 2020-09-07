@@ -102,17 +102,27 @@ public class Oblig1 {
     /// 7b)
     public static String flett(String... s) {
 
+        if(s.length == 0){
+            return "";
+        }
         StringBuilder flett = new StringBuilder();
-
+        int indexLengde = 0;
 
     for (int i = 0; i < s.length; i++){
+        if (s[i].length() > indexLengde){
+             indexLengde = s[i].length();
 
-        for (int j = 0; j < s.length; j++){
-            System.out.println(s[j]);
+        }
+
+        for (int j = 1; j <= indexLengde ; j++){
+            for (int a = 0; a < s.length; a++) {
+                if (j <= s[a].length()) {
+                    flett.append(s[a].charAt(j - 1));
+                    System.out.println(flett.toString());
+                }
+            }
         }
     }
-
-
         return flett.toString();
     }
 
