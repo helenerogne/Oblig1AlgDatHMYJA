@@ -10,11 +10,13 @@ public class Oblig1 {
 
     ///// Oppgave 1 //////////////////////////////////////
     public static int maks(int[] a) {
-        if (a == null ) {
+
+        if (a.length == 0 ) {
             throw new NoSuchElementException("Det finnes ingen liste");
         }
 
         for (int i = 0; i < a.length - 1; i++) {
+
 
             if (a[i] > a[i + 1]) {
                 int value = a[i + 1];
@@ -31,13 +33,15 @@ public class Oblig1 {
     }
 
     public static int ombyttinger(int[] a) {
-        if (a == null) {
-            throw new UnsupportedOperationException();
-        }
+
         int ombyttinger = 0;
 
+        if (a.length == 0 ) {
+            throw new NoSuchElementException("Det finnes ingen liste");
+        }
 
         for (int i = 0; i < a.length - 1; i++) {
+
 
             if (a[i] > a[i + 1]) {
                 int value = a[i + 1];
@@ -79,12 +83,37 @@ public class Oblig1 {
     ///// Oppgave 7 //////////////////////////////////////
     /// 7a)
     public static String flett(String s, String t) {
-        throw new UnsupportedOperationException();
+
+
+        int m = Math.min(s.length(), t.length());
+        StringBuilder flettetString = new StringBuilder();
+
+        for (int i = 0; i < m; i++) {
+            flettetString.append(s.charAt(i)).append(t.charAt(i));
+        }
+
+        flettetString.append(s.substring(m)).append(t.substring(m));
+
+
+                return flettetString.toString();
     }
+
 
     /// 7b)
     public static String flett(String... s) {
-        throw new UnsupportedOperationException();
+
+        StringBuilder flett = new StringBuilder();
+
+
+    for (int i = 0; i < s.length; i++){
+
+        for (int j = 0; j < s.length; j++){
+            //System.out.println(j[i]);
+        }
+    }
+
+
+        return flett.toString();
     }
 
     ///// Oppgave 8 //////////////////////////////////////
