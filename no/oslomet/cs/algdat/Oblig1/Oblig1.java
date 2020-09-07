@@ -26,8 +26,6 @@ public class Oblig1 {
 
 
         return  a[a.length-1];
-
-
     }
 
     public static int ombyttinger(int[] a) {
@@ -62,9 +60,66 @@ public class Oblig1 {
     }
 
     ///// Oppgave 4 //////////////////////////////////////
-    public static void delsortering(int[] a) {
-        throw new UnsupportedOperationException();
+    public static void delsortering(int[] a) { //throw new UnsupportedOperationException();
+        delsortering(a, 0, a.length-1);
     }
+
+    public static void delsortering(int[] a, int begin, int end) {
+
+        if (begin > end) {
+            return;
+        }
+
+        int pivot = (begin+end)/2; //
+        int indeks = parter(a, begin, end, pivot);
+        delsortering(a, begin, indeks - 1);
+        delsortering(a, indeks + 1, end);
+    }
+
+    public static int parter(int [] a, int begin, int end, int skilleverdi){
+        while (true) {
+            while (begin<=end && a[begin]<skilleverdi &&  a[begin] % 2 == 0) begin++;
+            while (begin<=end && a[end]>=skilleverdi && a[end] % 2 != 0) end--;
+            if (begin < end) {
+                bytt(a, begin++, end--);
+
+            }
+            else {
+                return begin;
+            }
+        }
+    }
+
+    public static void bytt(int [] a, int i, int j) {
+        int temp = a[i];
+        a[i] = a[j];
+        a[j] = temp;
+    }
+
+    /*
+        int i = 0;
+        int j = a.length - 1;
+
+        while (i < a.length && a[i] % 2 == 1) i++;
+        while (j >= 0 && a[j] % 2 == 0) j--;
+
+        while (true) {
+        if (i < j) {
+         bytt(a, i, j);
+           i++;
+           j--;
+            } else {
+                break;
+            }
+
+            while (a[i] % 2 == 1) i++;
+            while (a[j] % 2 == 0) j--;
+        }
+    qs(a, 0, i);
+    qs(a, i, a.length);
+
+     */
+
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
