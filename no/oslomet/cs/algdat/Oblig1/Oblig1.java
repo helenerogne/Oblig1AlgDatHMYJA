@@ -63,8 +63,58 @@ public class Oblig1 {
     }
 
     ///// Oppgave 4 //////////////////////////////////////
-    public static void delsortering(int[] a) {
-        throw new UnsupportedOperationException();
+    /*
+    - Fjerne int k fra parameterne til metodekallet. Mulig å ta inn kun int[] a?
+    - For å fjerne k må man finne en måte å splitte arrayet i to, selv om det
+      blir lagt inn negative tall i arrayet.
+    - Finne en måte å sortere de to halvdelene på, selv om det er negative
+      tall. Collections-metoden lånt fra geeksforgeeks-nettsiden er ikke mulig
+      å bruke i denne sammenhengen.
+
+      Brukt denne nettsiden til hjelp:
+      https://www.geeksforgeeks.org/sort-even-numbers-ascending-order-sort-odd-numbers-descending-order/
+     */
+    public static void delsortering(int[] a, int k) {
+        // Sjekker om tabellen er tom eller om det er ett element i tabellen
+        // Gir ikke feilsituasjon, men vil heller ikke endre noe.
+        if (a.length < 2) {
+            return;
+        }
+
+        // Current indexes from left and right
+        int venstre = 0;
+        int hoyre = k - 1;
+
+        // Count of odd numbers
+        int tellerOddetall = 0;
+
+        while (venstre < hoyre) {
+            // Find first odd number from left side.
+            while (a[venstre] % 2 != 0) {
+                venstre++;
+                tellerOddetall++;
+            }
+
+            // Find first even number from right side.
+            while (a[hoyre] % 2 == 0 && venstre < hoyre) {
+                hoyre--;
+            }
+
+            // Swap odd number present on left and even number right.
+            if (venstre < hoyre) {
+                // Swap a[venstre] a[hoyre]
+                int temp = a[venstre];
+                a[venstre] = a[hoyre];
+                a[hoyre] = temp;
+            }
+        }
+
+        // Sort odd number in descending order
+        // OBS!! Kan ikke bruke/hente denne Collections-metoden. Finn annen måte å sortere!!
+        Arrays.sort(a, 0, tellerOddetall, Collections.reverseOrder());
+
+        // Sort even number in ascending order
+        Arrays.sort(a, tellerOddetall, k);
     }
 
     ///// Oppgave 5 //////////////////////////////////////
