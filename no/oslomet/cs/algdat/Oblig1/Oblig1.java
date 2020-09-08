@@ -108,22 +108,25 @@ public class Oblig1 {
         StringBuilder flett = new StringBuilder();
         int indexLengde = 0;
 
-    for (int i = 0; i < s.length; i++){
-        if (s[i].length() > indexLengde){
-             indexLengde = s[i].length();
+        for (int i = 0; i < s.length; i++) {
+            if (s[i].length() > indexLengde) {
+                indexLengde = s[i].length();
 
+            }
         }
 
         for (int j = 1; j <= indexLengde ; j++){
             for (int a = 0; a < s.length; a++) {
+                //if ( s[j].equals(s.length)){
+                // return " ";
+                //}
                 if (j <= s[a].length()) {
                     flett.append(s[a].charAt(j - 1));
-                    System.out.println(flett.toString());
                 }
             }
         }
-    }
         return flett.toString();
+
     }
 
     ///// Oppgave 8 //////////////////////////////////////
