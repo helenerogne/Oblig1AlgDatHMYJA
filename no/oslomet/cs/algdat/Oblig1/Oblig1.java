@@ -59,66 +59,57 @@ public class Oblig1 {
         throw new UnsupportedOperationException();
     }
 
-    ///// Oppgave 4 //////////////////////////////////////
-    public static void delsortering(int[] a) { //throw new UnsupportedOperationException();
-        delsortering(a, 0, a.length-1);
-    }
-
-    public static void delsortering(int[] a, int begin, int end) {
-
-        if (begin > end) {
-            return;
+    ///// Oppgave 4 ////////////////////////////////////// throw new UnsupportedOperationException();
+    public static void delsortering(int[] a) {
+            int indeks = parterOddPar(a, 0, a.length-1);
+            quickSort(a, 0, indeks-1);
+            quickSort(a, indeks, a.length-1);
+            //delsortering(a, begin, indeks - 1);
+            //delsortering(a, indeks + 1, end);
         }
 
-        int pivot = (begin+end)/2; //
-        int indeks = parter(a, begin, end, pivot);
-        delsortering(a, begin, indeks - 1);
-        delsortering(a, indeks + 1, end);
-    }
+        private static int partition(int[] a, int begin, int end){
+            int pivot = a[end];
+            int j = (begin-1);
 
-    public static int parter(int [] a, int begin, int end, int skilleverdi){
-        while (true) {
-            while (begin<=end && a[begin]<skilleverdi &&  a[begin] % 2 == 0) begin++;
-            while (begin<=end && a[end]>=skilleverdi && a[end] % 2 != 0) end--;
-            if (begin < end) {
-                bytt(a, begin++, end--);
-
+            for(int i = begin; i < end; i++){
+                if(a[i] <= pivot){
+                    j++;
+                    bytt(a, i, j);
+                }
             }
-            else {
-                return begin;
+            bytt(a, j+1, end);
+            return j+1;
+        }
+
+        private static void quickSort(int[] values, int left, int right){
+            if(left < right){
+                int pivot_index = partition(values, left, right);
+                quickSort(values, left, pivot_index-1);
+                quickSort(values, pivot_index+1, right);
             }
         }
-    }
 
-    public static void bytt(int [] a, int i, int j) {
-        int temp = a[i];
-        a[i] = a[j];
-        a[j] = temp;
-    }
 
-    /*
-        int i = 0;
-        int j = a.length - 1;
+        public static int parterOddPar(int [] a, int begin, int end){
+            while (true) {
+                while (begin<=end  &&  a[begin] % 2 != 0) begin++;
+                while (begin<=end  && a[end] % 2 == 0) end--;
+                if (begin < end) {
+                    bytt(a, begin++, end--);
 
-        while (i < a.length && a[i] % 2 == 1) i++;
-        while (j >= 0 && a[j] % 2 == 0) j--;
-
-        while (true) {
-        if (i < j) {
-         bytt(a, i, j);
-           i++;
-           j--;
-            } else {
-                break;
+                }
+                else {
+                    return begin;
+                }
             }
-
-            while (a[i] % 2 == 1) i++;
-            while (a[j] % 2 == 0) j--;
         }
-    qs(a, 0, i);
-    qs(a, i, a.length);
 
-     */
+        public static void bytt(int [] a, int i, int j) {
+            int temp = a[i];
+            a[i] = a[j];
+            a[j] = temp;
+        }
 
 
     ///// Oppgave 5 //////////////////////////////////////
