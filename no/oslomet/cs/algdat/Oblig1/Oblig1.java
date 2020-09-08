@@ -59,7 +59,7 @@ public class Oblig1 {
         throw new UnsupportedOperationException();
     }
 
-    ///// Oppgave 4 ////////////////////////////////////// throw new UnsupportedOperationException();
+    ///// Oppgave 4 //////////////////////////////////////
     public static void delsortering(int[] a) {
             int indeks = parterOddPar(a, 0, a.length-1);
             quickSort(a, 0, indeks-1);
@@ -143,13 +143,39 @@ public class Oblig1 {
         throw new UnsupportedOperationException();
     }
 
-    ///// Oppgave 10 //////////////////////////////////////
-    public static int bokstavNr(char bokstav) {
+    ///// Oppgave 10 ////////////////////////////////////// throw new UnsupportedOperationException();
+
+   /* public static int bokstavNr(char bokstav) {
         throw new UnsupportedOperationException();
     }
+
+    */
 
     public static boolean inneholdt(String a, String b) {
-        throw new UnsupportedOperationException();
+        //String characters = "";
+
+        if (a.length() == 0 || b.length() == 0) {
+            return true;
+        }
+
+        for (int i = 0; i < b.length(); i++) {
+            for (int j = 0; j < a.length(); j++) {
+                String word = Character.toString(b.charAt(i));
+                String dublicate = Character.toString(a.charAt(j));
+                if (dublicate.equals(word)) {
+                    //characters += dublicate;
+                    return true;
+                }
+            }
+        }
+        //System.out.println(characters);
+        return false;
     }
 
-}  // Oblig1
+    public static void main (String[] args) {
+        inneholdt("hlo", "hellohvnjfl");
+    }
+
+}
+
+// Oblig1
