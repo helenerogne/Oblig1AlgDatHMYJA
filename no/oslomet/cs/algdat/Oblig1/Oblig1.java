@@ -150,8 +150,8 @@ public class Oblig1 {
     }
 
     public static boolean inneholdt(String a, String b) {
-        String characters = "";
-        int count = 0;
+       // String characters = "";
+      //  int count = 0;
 
         if (a.length() == 0 && b.length() == 0) {
             return true;
@@ -164,10 +164,10 @@ public class Oblig1 {
             for (int j = 0; j < a.length(); j++) {
                 String word = Character.toString(b.charAt(i-1));
                 String dublicate = Character.toString(a.charAt(j));
-                if (dublicate.equals(word)) {
-                    i++;
-                    characters += dublicate;
-                    count++;
+                if (!dublicate.contains(word)) {
+                    return true;
+                    //characters += dublicate;
+                    //count++;
                 }
                 if (!b.contains(a)) {
                     return false;
