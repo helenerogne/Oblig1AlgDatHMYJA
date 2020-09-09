@@ -15,5 +15,5 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Jing har hatt hovedansvar for oppgave 2 og 3 
 * Marianne har hatt hovedansvar for oppgave 5 og 6 
 * Andrea har hatt hovedansvar for oppgave 8 og 9 
-* Yaldq har hatt hovedansvar for oppgave 4 og 10 
+* Yalda har hatt hovedansvar for oppgave 4 og 10 
 
