@@ -169,6 +169,9 @@ public class Oblig1 {
                     characters += dublicate;
                     count++;
                 }
+                if (a.equals(b)) {
+                    return true;
+                }
             }
         }
         //System.out.println(characters);
