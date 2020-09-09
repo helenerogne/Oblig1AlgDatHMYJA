@@ -3,6 +3,7 @@ package no.oslomet.cs.algdat.Oblig1;
 ////// Løsningsforslag Oblig 1 ////////////////////////
 
 import java.lang.UnsupportedOperationException;
+import java.util.Arrays;
 import java.util.NoSuchElementException;
 
 public class Oblig1 {
@@ -95,12 +96,34 @@ public class Oblig1 {
 
     ///// Oppgave 5 //////////////////////////////////////
     public static void rotasjon(char[] a) {
-        throw new UnsupportedOperationException();
+        if (a.length < 2) {
+            return;
+        } else {
+            char sistePlass = a[a.length - 1];
+
+            for (int i = a.length - 1; i > 0; i--) {
+                a[i] = a[i - 1];
+            }
+
+            a[0] = sistePlass;
+        }
     }
 
     ///// Oppgave 6 //////////////////////////////////////
     public static void rotasjon(char[] a, int k) {
-        throw new UnsupportedOperationException();
+        if (a.length < 2) {
+            return;
+        }
+
+        if ((k %= a.length) < 0) {
+            k += a.length;
+        }
+
+        char[] b = Arrays.copyOfRange(a, a.length - k, a.length);
+        for (int i = a.length - 1; i >= k; i--) {
+            a[i] = a[i - k];
+        }
+        System.arraycopy(b, 0, a, 0, k);
     }
 
     ///// Oppgave 7 //////////////////////////////////////

@@ -9,10 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class Oblig1UnitTest {
 
     @org.junit.jupiter.api.Test
-    void maks() {
-
-        assertEquals(true, false, "Implementer maks og denne testen");
-    }
+    void maks() { assertEquals(true, false, "Implementer maks og denne testen"); }
 
     @org.junit.jupiter.api.Test
     void ombyttinger() {
