@@ -145,14 +145,13 @@ public class Oblig1 {
 
     ///// Oppgave 10 ////////////////////////////////////// throw new UnsupportedOperationException();
 
-   /* public static int bokstavNr(char bokstav) {
+   public static int bokstavNr(char bokstav) {
         throw new UnsupportedOperationException();
     }
 
-    */
-
     public static boolean inneholdt(String a, String b) {
-        //String characters = "";
+        String characters = "";
+        int count = 0;
 
         if (a.length() == 0 || b.length() == 0) {
             return true;
@@ -163,19 +162,23 @@ public class Oblig1 {
                 String word = Character.toString(b.charAt(i));
                 String dublicate = Character.toString(a.charAt(j));
                 if (dublicate.equals(word)) {
-                    //characters += dublicate;
-                    return true;
+                    i++;
+                    characters += dublicate;
+                    count++;
                 }
             }
         }
         //System.out.println(characters);
+        //System.out.println(count);
         return false;
     }
-
-    public static void main (String[] args) {
-        inneholdt("hlo", "hellohvnjfl");
+    //
+    /*public static void main (String[] args) {
+        inneholdt("xyyx", "BARxByEyRER");
     }
 
+     */
 }
+
 
 // Oblig1
