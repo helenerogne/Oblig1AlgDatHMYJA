@@ -17,3 +17,5 @@ I oppgaven har vi hatt følgende arbeidsfordeling:
 * Andrea har hatt hovedansvar for oppgave 8 og 9 
 * Yalda har hatt hovedansvar for oppgave 4 og 10 
 
+Oppgave 10 får feil på test J. Vi vet ikke hvordan vi løser dette. 
+
