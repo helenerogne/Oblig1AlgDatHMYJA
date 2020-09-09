@@ -23,11 +23,7 @@ public class Oblig1 {
             }
 
         }
-
-
         return  a[a.length-1];
-
-
     }
 
     public static int ombyttinger(int[] a) {
@@ -54,12 +50,39 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int antallUnike = 1;
+        if (a.length == 0) {
+            return 0;
+        }
+            for (int i = 0; i < a.length - 1; i++) {
+                if (a[i] > a[i + 1]) {
+                    throw new IllegalStateException("Tabellen er ikke sortert");
+                }
+                if (a[i] != a[i + 1]) {
+                    antallUnike++;
+                }
+            } return antallUnike;
+
     }
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int antallUnike = 1;
+        if (a.length == 0){
+            return 0;
+        }
+        for (int i = 1; i < a.length; i++) {
+            int j = 0;
+            for (j = 0; j < i; j++) {
+                if (a[i] == a[j]) {
+                    break;
+                }
+            }
+            if (i == j) {
+                antallUnike++;
+            }
+        }
+        return antallUnike;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
