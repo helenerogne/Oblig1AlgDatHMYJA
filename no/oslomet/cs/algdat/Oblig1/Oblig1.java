@@ -153,7 +153,10 @@ public class Oblig1 {
         String characters = "";
         int count = 0;
 
-        if (a.length() == 0 || b.length() == 0) {
+        if (a.length() == 0 && b.length() == 0) {
+            return true;
+        }
+        if (b.length() != 0 && a.length() == 0) {
             return true;
         }
 
