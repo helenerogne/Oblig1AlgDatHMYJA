@@ -25,11 +25,7 @@ public class Oblig1 {
             }
 
         }
-
-
         return  a[a.length-1];
-
-
     }
 
     public static int ombyttinger(int[] a) {
@@ -57,12 +53,39 @@ public class Oblig1 {
 
     ///// Oppgave 2 //////////////////////////////////////
     public static int antallUlikeSortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int antallUnike = 1;
+        if (a.length == 0) {
+            return 0;
+        }
+            for (int i = 0; i < a.length - 1; i++) {
+                if (a[i] > a[i + 1]) {
+                    throw new IllegalStateException("Tabellen er ikke sortert");
+                }
+                if (a[i] != a[i + 1]) {
+                    antallUnike++;
+                }
+            } return antallUnike;
+
     }
 
     ///// Oppgave 3 //////////////////////////////////////
     public static int antallUlikeUsortert(int[] a) {
-        throw new UnsupportedOperationException();
+        int antallUnike = 1;
+        if (a.length == 0){
+            return 0;
+        }
+        for (int i = 1; i < a.length; i++) {
+            int j = 0;
+            for (j = 0; j < i; j++) {
+                if (a[i] == a[j]) {
+                    break;
+                }
+            }
+            if (i == j) {
+                antallUnike++;
+            }
+        }
+        return antallUnike;
     }
 
     ///// Oppgave 4 //////////////////////////////////////
@@ -128,12 +151,74 @@ public class Oblig1 {
 
     ///// Oppgave 8 //////////////////////////////////////
     public static int[] indekssortering(int[] a) {
-        throw new UnsupportedOperationException();
+        int [] indekser = new int [a.length];
+
+        for(int i = 0; i<a.length; ++i){
+            indekser[i]=i;
+        }
+
+
+        for(int  i = 0; i<a.length; ++i){
+            for(int j = i+1; j<a.length; ++j){
+                int midlertidig;
+
+                if(a[indekser[i]]>a[indekser[j]]){
+                    midlertidig = indekser[i];
+                    indekser[i] = indekser[j];
+                    indekser[j] = midlertidig;
+                }
+            }
+        }
+
+        return indekser;
     }
 
     ///// Oppgave 9 //////////////////////////////////////
     public static int[] tredjeMin(int[] a) {
-        throw new UnsupportedOperationException();
+        if(a.length < 3){
+            throw new NoSuchElementException("arrayet er for kort til å hente de tre minste verdiene");
+        }
+        int [] hjelpetabell = {a[0], a[1], a[2]};
+        int [] indekser = indekssortering(hjelpetabell);
+
+        int minsteverdi = a[indekser[0]];
+        int nestminstverdi = a[indekser[1]];
+        int tredjeminstverdi = a[indekser[2]];
+
+        int minsteverdiindeks = indekser[0];
+        int nestminstverdiindeks = indekser[1];
+        int tredjeminstverdiindeks = indekser[2];
+
+        for(int i = 3; i < a.length; ++i){
+            if(a[i] < tredjeminstverdi){
+                if (a[i] < nestminstverdi){
+                    if(a[i] < minsteverdi){
+                        tredjeminstverdiindeks = nestminstverdiindeks;
+                        nestminstverdiindeks = minsteverdiindeks;
+                        minsteverdiindeks = i;
+
+                        tredjeminstverdi = a[tredjeminstverdiindeks];
+                        nestminstverdi = a[nestminstverdiindeks];
+                        minsteverdi = a[minsteverdiindeks];
+                    }else{
+                        tredjeminstverdiindeks = nestminstverdiindeks;
+                        nestminstverdiindeks = i;
+
+                        tredjeminstverdi = a[tredjeminstverdiindeks];
+                        nestminstverdi = a[nestminstverdiindeks];
+                    }
+                }else{
+                    tredjeminstverdiindeks = i;
+
+                    tredjeminstverdi = a[tredjeminstverdiindeks];
+                }
+            }
+            indekser [0] = minsteverdiindeks;
+            indekser [1] = nestminstverdiindeks;
+            indekser [2] = tredjeminstverdiindeks;
+        }
+
+        return indekser;
     }
 
     ///// Oppgave 10 //////////////////////////////////////
