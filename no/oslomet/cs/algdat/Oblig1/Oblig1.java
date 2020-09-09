@@ -156,27 +156,27 @@ public class Oblig1 {
         if (a.length() == 0 && b.length() == 0) {
             return true;
         }
-        if (b.length() != 0 && a.length() == 0) {
-            return true;
+        if (a.length() != 0 && b.length() == 0) {
+            return false;
         }
 
-        for (int i = 0; i < b.length(); i++) {
+        for (int i = 1; i < b.length(); i++) {
             for (int j = 0; j < a.length(); j++) {
-                String word = Character.toString(b.charAt(i));
+                String word = Character.toString(b.charAt(i-1));
                 String dublicate = Character.toString(a.charAt(j));
                 if (dublicate.equals(word)) {
                     i++;
                     characters += dublicate;
                     count++;
                 }
-                if (a.equals(b)) {
-                    return true;
+                if (!b.contains(a)) {
+                    return false;
                 }
             }
         }
         //System.out.println(characters);
         //System.out.println(count);
-        return false;
+        return true;
     }
     //
     /*public static void main (String[] args) {
