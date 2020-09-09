@@ -167,10 +167,10 @@ public class Oblig1 {
 
         for (int i = 1; i < b.length(); i++) {
             for (int j = 0; j < a.length(); j++) {
-                String word = Character.toString(b.charAt(i - 1));
-                String dublicate = Character.toString(a.charAt(j));
+                String x2 = Character.toString(b.charAt(i - 1));
+                String x = Character.toString(a.charAt(j));
 
-                if (!dublicate.contains(word)) {
+                if (!x.contains(x2)) {
                     return true;
                 }
 
