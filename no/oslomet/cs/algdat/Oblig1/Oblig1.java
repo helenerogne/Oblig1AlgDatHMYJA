@@ -94,8 +94,7 @@ public class Oblig1 {
         int indeks = parterOddPar(a, 0, a.length - 1);
         quickSort(a, 0, indeks - 1);
         quickSort(a, indeks, a.length - 1);
-        //delsortering(a, begin, indeks - 1);
-        //delsortering(a, indeks + 1, end);
+
     }
 
     private static int partition(int[] a, int begin, int end) {
@@ -291,7 +290,7 @@ public class Oblig1 {
         return indekser;
     }
 
-    ///// Oppgave 10 ////////////////////////////////////// throw new UnsupportedOperationException();
+    ///// Oppgave 10 //////////////////////////////////////
 
 
     public static boolean inneholdt(String a, String b) {
