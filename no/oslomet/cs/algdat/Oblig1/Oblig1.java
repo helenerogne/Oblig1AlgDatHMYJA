@@ -151,7 +151,7 @@ public class Oblig1 {
 
     public static boolean inneholdt(String a, String b) {
           String characters = "";
-      //  int count = 0;
+          int count = 0;
 
         if (a.length() == 0 && b.length() == 0) {
             return true;
@@ -174,10 +174,10 @@ public class Oblig1 {
                 String dublicate = Character.toString(a.charAt(j));
 
                 if (!dublicate.contains(word)) {
+                    count++;
                     i++;
                     characters += dublicate;
                     return true;
-                    //count++;
                 }
 
                 if (!b.contains(a)) {
