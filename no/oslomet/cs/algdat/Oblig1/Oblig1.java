@@ -293,17 +293,6 @@ public class Oblig1 {
 
     ///// Oppgave 10 ////////////////////////////////////// throw new UnsupportedOperationException();
 
-   /*public static int bokstavNr(char bokstav) {
-        throw new UnsupportedOperationException();
-    }
-
-    */
-    ///// Oppgave 10 ////////////////////////////////////// throw new UnsupportedOperationException();
-
-    /*public static int bokstavNr(char bokstav) {
-        throw new UnsupportedOperationException();
-    }
-     */
 
     public static boolean inneholdt(String a, String b) {
         if (a.length() == 0 && b.length() == 0) {
