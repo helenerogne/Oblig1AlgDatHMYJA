@@ -150,28 +150,40 @@ public class Oblig1 {
     }
 
     public static boolean inneholdt(String a, String b) {
-       // String characters = "";
+          String characters = "";
       //  int count = 0;
 
         if (a.length() == 0 && b.length() == 0) {
             return true;
         }
-        if (a.length() != 0 && b.length() == 0) {
+        if ((a.length() != 0 && b.length() == 0) || a.length()>b.length()) {
             return false;
         }
+        /*
+          b = Oblig1.inneholdt("ABBA", "BARBERER");
+        if (b != false) {
+            System.out.println
+                    ("Oppgave 10: j) Svaret skal bli lik false her!");
+            antallFeil++;
+        }
+         */
 
         for (int i = 1; i < b.length(); i++) {
             for (int j = 0; j < a.length(); j++) {
                 String word = Character.toString(b.charAt(i-1));
                 String dublicate = Character.toString(a.charAt(j));
+
                 if (!dublicate.contains(word)) {
+                    i++;
+                    characters += dublicate;
                     return true;
-                    //characters += dublicate;
                     //count++;
                 }
+
                 if (!b.contains(a)) {
                     return false;
                 }
+
             }
         }
         //System.out.println(characters);
