@@ -117,9 +117,6 @@ public class Oblig1 {
 
         for (int j = 1; j <= indexLengde ; j++){
             for (int a = 0; a < s.length; a++) {
-                //if ( s[j].equals(s.length)){
-                // return " ";
-                //}
                 if (j <= s[a].length()) {
                     flett.append(s[a].charAt(j - 1));
                 }
